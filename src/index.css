@@ -1,21 +1,89 @@
 @import "tailwindcss";
 
+/* -- THEME TOGGLE (added by Hal) -- */
+:root{
+  --pc-faf7f2: #FAF7F2;
+  --pc-faf4eb: #FAF4EB;
+  --pc-f8f4ed: #F8F4ED;
+  --pc-f7f2ea: #F7F2EA;
+  --pc-f5efe6: #F5EFE6;
+  --pc-f3ece1: #F3ECE1;
+  --pc-ebe2d5: #EBE2D5;
+  --pc-eae1d2: #EAE1D2;
+  --pc-ede3d4: #EDE3D4;
+  --pc-efe6d8: #EFE6D8;
+  --pc-e2d4c3: #E2D4C3;
+  --pc-e8dfc8: #E8DFC8;
+  --pc-e5dbc7: #E5DBC7;
+  --pc-dcd1bf: #DCD1BF;
+  --pc-d8ceb8: #D8CEB8;
+  --pc-2c2523: #2C2523;
+  --pc-1f1917: #1F1917;
+  --pc-3e3431: #3E3431;
+  --pc-554a45: #554A45;
+  --pc-4a3e39: #4A3E39;
+  --pc-6b5e59: #6B5E59;
+  --pc-8c7e77: #8C7E77;
+  --pc-7c2d2d: #7C2D2D;
+  --pc-682424: #682424;
+  --pc-632323: #632323;
+  --pc-581f1f: #581F1F;
+  --pc-5b1f1f: #5B1F1F;
+  --pc-b48a3c: #B48A3C;
+  --pc-fef08a: #FEF08A;
+  --pc-fbbf24: #FBBF24;
+  --pc-f97316: #F97316;
+  --pc-eab308: #EAB308;
+}
+[data-theme='dark']{
+  --pc-faf7f2: #101010;
+  --pc-faf4eb: #141414;
+  --pc-f8f4ed: #161616;
+  --pc-f7f2ea: #181818;
+  --pc-f5efe6: #1c1c1c;
+  --pc-f3ece1: #1e1e1e;
+  --pc-ebe2d5: #212121;
+  --pc-eae1d2: #232323;
+  --pc-ede3d4: #202020;
+  --pc-efe6d8: #1f1f1f;
+  --pc-e2d4c3: #2E2A26;
+  --pc-e8dfc8: #2C2926;
+  --pc-e5dbc7: #2B2825;
+  --pc-dcd1bf: #2A2724;
+  --pc-d8ceb8: #292622;
+  --pc-2c2523: #EAE2D6;
+  --pc-1f1917: #EFE8DD;
+  --pc-3e3431: #D9D0C4;
+  --pc-554a45: #C9C0B4;
+  --pc-4a3e39: #B8AFA3;
+  --pc-6b5e59: #9C9188;
+  --pc-8c7e77: #A89C92;
+  --pc-7c2d2d: #B0403D;
+  --pc-682424: #A63C39;
+  --pc-632323: #9C3734;
+  --pc-581f1f: #933532;
+  --pc-5b1f1f: #963633;
+  --pc-b48a3c: #C99A4A;
+}
+html{transition:background-color .2s ease, color .2s ease;}
+
+
 @theme {
   --font-serif: 'Lora', Georgia, serif;
   --font-display: 'Cormorant Garamond', Garamond, Georgia, serif;
   --font-cinzel: 'Cinzel', 'Trajan Pro', Georgia, serif;
-  --color-parchment: #FAF7F2;
-  --color-parchment-deep: #F3ECE1;
-  --color-ink: #2C2523;
-  --color-ink-muted: #6B5E59;
-  --color-burgundy: #7C2D2D;
-  --color-gold: #B48A3C;
+  --color-parchment: var(--pc-faf7f2);
+  --color-parchment-deep: var(--pc-f3ece1);
+  --color-ink: var(--pc-2c2523);
+  --color-ink-muted: var(--pc-6b5e59);
+  --color-burgundy: var(--pc-7c2d2d);
+  --color-gold: var(--pc-b48a3c);
 }
 
 body {
   font-family: var(--font-serif);
-  background-color: #FAF7F2;
-  color: #2C2523;
+  background-color: var(--pc-faf7f2);
+  color: var(--pc-2c2523);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -28,7 +96,7 @@ body {
   padding-top: 4px;
   padding-right: 10px;
   padding-bottom: 2px;
-  color: #7C2D2D;
+  color: var(--pc-7c2d2d);
   font-weight: 600;
 }
 

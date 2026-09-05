@@ -35,7 +35,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF7F2] text-[#2C2523] selection:bg-[#E2D4C3]">
+    <div className="min-h-screen flex flex-col bg-[var(--pc-faf7f2)] text-[var(--pc-2c2523)] selection:bg-[var(--pc-e2d4c3)]">
       {/* Top App Header */}
       <Header
         activeTab={activeTab}
@@ -122,47 +122,47 @@ export default function App() {
       </main>
 
       {/* Reverent Footer */}
-      <footer className="no-print border-t border-[#E8DFC8] bg-[#F5EFE6] py-8 text-center text-xs font-serif text-[#6B5E59]">
+      <footer className="no-print border-t border-[var(--pc-e8dfc8)] bg-[var(--pc-f5efe6)] py-8 text-center text-xs font-serif text-[var(--pc-6b5e59)]">
         <div className="max-w-3xl mx-auto px-4 space-y-3">
           <div className="flex items-center justify-center gap-2">
-            <div className="h-px w-8 bg-[#D8CEB8]" />
-            <Cross className="w-3.5 h-3.5 text-[#7C2D2D]" />
-            <div className="h-px w-8 bg-[#D8CEB8]" />
+            <div className="h-px w-8 bg-[var(--pc-d8ceb8)]" />
+            <Cross className="w-3.5 h-3.5 text-[var(--pc-7c2d2d)]" />
+            <div className="h-px w-8 bg-[var(--pc-d8ceb8)]" />
           </div>
 
-          <p className="font-display italic text-sm text-[#7C2D2D]">
+          <p className="font-display italic text-sm text-[var(--pc-7c2d2d)]">
             "It is better to pray simply every day than to attempt too much and quickly give up."
           </p>
 
-          <p className="text-[11px] text-[#8C7E77]">
+          <p className="text-[11px] text-[var(--pc-8c7e77)]">
             Based upon the pastoral writing of Father John • How to Begin a Daily Prayer Life
           </p>
 
           <div className="flex items-center justify-center gap-4 text-[11px] pt-1">
             <button
               onClick={() => setActiveTab('guide')}
-              className="hover:text-[#7C2D2D] underline underline-offset-2"
+              className="hover:text-[var(--pc-7c2d2d)] underline underline-offset-2"
             >
               The Guide
             </button>
             <span>•</span>
             <button
               onClick={() => setActiveTab('prayers')}
-              className="hover:text-[#7C2D2D] underline underline-offset-2"
+              className="hover:text-[var(--pc-7c2d2d)] underline underline-offset-2"
             >
               Prayer Treasury
             </button>
             <span>•</span>
             <button
               onClick={() => setActiveTab('silence')}
-              className="hover:text-[#7C2D2D] underline underline-offset-2"
+              className="hover:text-[var(--pc-7c2d2d)] underline underline-offset-2"
             >
               Quiet Prayer
             </button>
             <span>•</span>
             <button
               onClick={() => setActiveTab('pocket')}
-              className="hover:text-[#7C2D2D] underline underline-offset-2"
+              className="hover:text-[var(--pc-7c2d2d)] underline underline-offset-2"
             >
               Pocket Card
             </button>

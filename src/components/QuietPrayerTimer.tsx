@@ -114,19 +114,19 @@ export const QuietPrayerTimer: React.FC = () => {
       
       {/* Title & Pastoral Quote */}
       <div className="text-center mb-8">
-        <span className="text-xs uppercase font-cinzel tracking-widest text-[#7C2D2D] font-bold block mb-1">
+        <span className="text-xs uppercase font-cinzel tracking-widest text-[var(--pc-7c2d2d)] font-bold block mb-1">
           Father John's Counsel
         </span>
-        <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#2C2523]">
+        <h2 className="font-display text-3xl sm:text-4xl font-bold text-[var(--pc-2c2523)]">
           Sitting Quietly Before God
         </h2>
-        <div className="mt-3 max-w-lg mx-auto bg-[#FAF4EB] border border-[#E8DFC8] rounded-lg p-3.5 text-xs sm:text-sm font-serif italic text-[#6B5E59]">
+        <div className="mt-3 max-w-lg mx-auto bg-[var(--pc-faf4eb)] border border-[var(--pc-e8dfc8)] rounded-lg p-3.5 text-xs sm:text-sm font-serif italic text-[var(--pc-6b5e59)]">
           "Prayer is not only speaking. Sometimes the most fruitful prayer is simply remaining quietly in the presence of God."
         </div>
       </div>
 
       {/* Sanctuary Card */}
-      <div className="bg-[#FAF7F2] border border-[#E8DFC8] rounded-2xl p-6 sm:p-10 shadow-xs relative overflow-hidden text-center">
+      <div className="bg-[var(--pc-faf7f2)] border border-[var(--pc-e8dfc8)] rounded-2xl p-6 sm:p-10 shadow-xs relative overflow-hidden text-center">
         
         {/* Top Sound Toggle & Duration Controls */}
         <div className="flex items-center justify-between gap-2 mb-6">
@@ -143,8 +143,8 @@ export const QuietPrayerTimer: React.FC = () => {
                 disabled={isRunning}
                 className={`px-3 py-1 rounded-full text-xs font-serif transition-colors ${
                   selectedDuration === dur.sec
-                    ? 'bg-[#7C2D2D] text-[#FAF7F2] font-semibold'
-                    : 'bg-[#F3ECE1] text-[#6B5E59] hover:bg-[#EBE2D5] disabled:opacity-40'
+                    ? 'bg-[var(--pc-7c2d2d)] text-[var(--pc-faf7f2)] font-semibold'
+                    : 'bg-[var(--pc-f3ece1)] text-[var(--pc-6b5e59)] hover:bg-[var(--pc-ebe2d5)] disabled:opacity-40'
                 }`}
               >
                 {dur.label}
@@ -154,10 +154,10 @@ export const QuietPrayerTimer: React.FC = () => {
 
           <button
             onClick={() => setSoundEnabled(!soundEnabled)}
-            className="p-2 rounded-md bg-[#F3ECE1] hover:bg-[#EBE2D5] text-[#4A3E39] border border-[#E2D4C3] text-xs transition-colors"
+            className="p-2 rounded-md bg-[var(--pc-f3ece1)] hover:bg-[var(--pc-ebe2d5)] text-[var(--pc-4a3e39)] border border-[var(--pc-e2d4c3)] text-xs transition-colors"
             title={soundEnabled ? 'Bell chime enabled' : 'Bell chime muted'}
           >
-            {soundEnabled ? <Volume2 className="w-4 h-4 text-[#7C2D2D]" /> : <VolumeX className="w-4 h-4 text-[#8C7E77]" />}
+            {soundEnabled ? <Volume2 className="w-4 h-4 text-[var(--pc-7c2d2d)]" /> : <VolumeX className="w-4 h-4 text-[var(--pc-8c7e77)]" />}
           </button>
         </div>
 
@@ -165,37 +165,37 @@ export const QuietPrayerTimer: React.FC = () => {
         <div className="my-6 flex flex-col items-center justify-center">
           <div className="relative w-16 h-28 flex items-end justify-center">
             {/* Candle wax stick */}
-            <div className="w-9 h-14 bg-[#F5EFE6] border border-[#DCD1BF] rounded-t-sm shadow-inner relative">
+            <div className="w-9 h-14 bg-[var(--pc-f5efe6)] border border-[var(--pc-dcd1bf)] rounded-t-sm shadow-inner relative">
               {/* Subtle wax drip */}
-              <div className="absolute -top-1 left-2 w-1.5 h-3 bg-[#EFE6D8] rounded-full" />
+              <div className="absolute -top-1 left-2 w-1.5 h-3 bg-[var(--pc-efe6d8)] rounded-full" />
             </div>
 
             {/* Candle wick */}
-            <div className="absolute top-10 w-0.5 h-4 bg-[#3E3431]" />
+            <div className="absolute top-10 w-0.5 h-4 bg-[var(--pc-3e3431)]" />
 
             {/* Candle Flame */}
             <div className="absolute top-2 flex items-center justify-center">
               {/* Outer soft glow */}
-              <div className="w-12 h-14 rounded-full bg-[#EAB308]/20 blur-md absolute -top-2" />
+              <div className="w-12 h-14 rounded-full bg-[var(--pc-eab308)]/20 blur-md absolute -top-2" />
               {/* Flame body */}
-              <div className="candle-flame w-4 h-8 bg-linear-to-t from-[#F97316] via-[#FBBF24] to-[#FEF08A] rounded-t-full rounded-b-xl shadow-xs" />
+              <div className="candle-flame w-4 h-8 bg-linear-to-t from-[var(--pc-f97316)] via-[var(--pc-fbbf24)] to-[var(--pc-fef08a)] rounded-t-full rounded-b-xl shadow-xs" />
             </div>
           </div>
         </div>
 
         {/* Timer Display */}
         <div className="my-4">
-          <div className="font-cinzel text-4xl sm:text-5xl font-bold tracking-wider text-[#2C2523]">
+          <div className="font-cinzel text-4xl sm:text-5xl font-bold tracking-wider text-[var(--pc-2c2523)]">
             {formatTime(timeLeft)}
           </div>
-          <p className="text-xs font-serif italic text-[#8C7E77] mt-1">
+          <p className="text-xs font-serif italic text-[var(--pc-8c7e77)] mt-1">
             {isRunning ? "Rest peacefully in His presence" : hasFinished ? "Prayer concluded" : "Ready to begin"}
           </p>
         </div>
 
         {/* Sacred Anchor Word Selector */}
         <div className="my-6 max-w-md mx-auto">
-          <p className="font-serif italic text-base sm:text-lg text-[#7C2D2D] min-h-[3rem] flex items-center justify-center">
+          <p className="font-serif italic text-base sm:text-lg text-[var(--pc-7c2d2d)] min-h-[3rem] flex items-center justify-center">
             "{SACRED_ANCHORS[activeAnchorIdx].text}"
           </p>
           <div className="flex flex-wrap items-center justify-center gap-1.5 mt-2">
@@ -205,8 +205,8 @@ export const QuietPrayerTimer: React.FC = () => {
                 onClick={() => setActiveAnchorIdx(idx)}
                 className={`text-[11px] font-serif px-2 py-0.5 rounded transition-colors ${
                   activeAnchorIdx === idx
-                    ? 'bg-[#F3ECE1] text-[#7C2D2D] font-medium border border-[#E2D4C3]'
-                    : 'text-[#8C7E77] hover:text-[#2C2523]'
+                    ? 'bg-[var(--pc-f3ece1)] text-[var(--pc-7c2d2d)] font-medium border border-[var(--pc-e2d4c3)]'
+                    : 'text-[var(--pc-8c7e77)] hover:text-[var(--pc-2c2523)]'
                 }`}
               >
                 {anchor.label}
@@ -220,7 +220,7 @@ export const QuietPrayerTimer: React.FC = () => {
           {!isRunning ? (
             <button
               onClick={handleStart}
-              className="px-6 py-2.5 rounded-full bg-[#7C2D2D] hover:bg-[#682424] text-[#FAF7F2] font-serif font-medium text-sm flex items-center gap-2 shadow-xs transition-all cursor-pointer"
+              className="px-6 py-2.5 rounded-full bg-[var(--pc-7c2d2d)] hover:bg-[var(--pc-682424)] text-[var(--pc-faf7f2)] font-serif font-medium text-sm flex items-center gap-2 shadow-xs transition-all cursor-pointer"
             >
               <Play className="w-4 h-4 fill-current" />
               <span>{timeLeft === selectedDuration ? "Begin Silence" : "Resume"}</span>
@@ -228,7 +228,7 @@ export const QuietPrayerTimer: React.FC = () => {
           ) : (
             <button
               onClick={handlePause}
-              className="px-6 py-2.5 rounded-full bg-[#F3ECE1] hover:bg-[#EBE2D5] text-[#2C2523] font-serif font-medium text-sm flex items-center gap-2 border border-[#E2D4C3] transition-all cursor-pointer"
+              className="px-6 py-2.5 rounded-full bg-[var(--pc-f3ece1)] hover:bg-[var(--pc-ebe2d5)] text-[var(--pc-2c2523)] font-serif font-medium text-sm flex items-center gap-2 border border-[var(--pc-e2d4c3)] transition-all cursor-pointer"
             >
               <Pause className="w-4 h-4 fill-current" />
               <span>Pause</span>
@@ -237,7 +237,7 @@ export const QuietPrayerTimer: React.FC = () => {
 
           <button
             onClick={handleReset}
-            className="p-2.5 rounded-full bg-[#FAF7F2] hover:bg-[#F3ECE1] text-[#6B5E59] border border-[#E2D4C3] transition-colors"
+            className="p-2.5 rounded-full bg-[var(--pc-faf7f2)] hover:bg-[var(--pc-f3ece1)] text-[var(--pc-6b5e59)] border border-[var(--pc-e2d4c3)] transition-colors"
             title="Reset timer"
           >
             <RotateCcw className="w-4 h-4" />
@@ -258,23 +258,23 @@ export const QuietPrayerTimer: React.FC = () => {
         )}
 
         {/* Distraction Release Anchor */}
-        <div className="mt-8 pt-6 border-t border-[#EAE1D2] max-w-lg mx-auto">
+        <div className="mt-8 pt-6 border-t border-[var(--pc-eae1d2)] max-w-lg mx-auto">
           <button
             onClick={handleDistractionClick}
-            className="text-xs font-serif text-[#6B5E59] hover:text-[#7C2D2D] bg-[#F3ECE1] hover:bg-[#EBE2D5] px-3.5 py-1.5 rounded-full border border-[#E2D4C3] inline-flex items-center gap-1.5 transition-colors"
+            className="text-xs font-serif text-[var(--pc-6b5e59)] hover:text-[var(--pc-7c2d2d)] bg-[var(--pc-f3ece1)] hover:bg-[var(--pc-ebe2d5)] px-3.5 py-1.5 rounded-full border border-[var(--pc-e2d4c3)] inline-flex items-center gap-1.5 transition-colors"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#B48A3C]" />
+            <Sparkles className="w-3.5 h-3.5 text-[var(--pc-b48a3c)]" />
             <span>A Distraction Came</span>
             {distractionCount > 0 && (
-              <span className="ml-1 px-1.5 py-0.2 bg-[#FAF7F2] text-[#7C2D2D] rounded-full text-[10px] font-bold">
+              <span className="ml-1 px-1.5 py-0.2 bg-[var(--pc-faf7f2)] text-[var(--pc-7c2d2d)] rounded-full text-[10px] font-bold">
                 {distractionCount}
               </span>
             )}
           </button>
 
           {distractionAdvice && (
-            <div className="mt-3 p-3 bg-[#FAF4EB] border-l-2 border-[#7C2D2D] rounded-r text-left text-xs font-serif text-[#4A3E39] leading-relaxed">
-              <span className="font-semibold text-[#7C2D2D] block mb-0.5">Father John's Gentle Counsel:</span>
+            <div className="mt-3 p-3 bg-[var(--pc-faf4eb)] border-l-2 border-[var(--pc-7c2d2d)] rounded-r text-left text-xs font-serif text-[var(--pc-4a3e39)] leading-relaxed">
+              <span className="font-semibold text-[var(--pc-7c2d2d)] block mb-0.5">Father John's Gentle Counsel:</span>
               "{distractionAdvice}"
             </div>
           )}
@@ -283,7 +283,7 @@ export const QuietPrayerTimer: React.FC = () => {
       </div>
 
       {/* Theological Context Box */}
-      <div className="mt-6 text-center text-xs font-serif text-[#8C7E77] max-w-lg mx-auto leading-relaxed">
+      <div className="mt-6 text-center text-xs font-serif text-[var(--pc-8c7e77)] max-w-lg mx-auto leading-relaxed">
         "Even if distractions come, remain peacefully before Him. Fidelity matters more than strong feelings."
       </div>
 

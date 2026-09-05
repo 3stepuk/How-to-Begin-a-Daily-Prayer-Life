@@ -150,9 +150,9 @@ export const DailyRhythmTracker: React.FC<DailyRhythmTrackerProps> = ({
       case 'evening':
         return <Moon className="w-4 h-4 text-indigo-700" />;
       case 'weekly':
-        return <Church className="w-4 h-4 text-[#7C2D2D]" />;
+        return <Church className="w-4 h-4 text-[var(--pc-7c2d2d)]" />;
       default:
-        return <Sun className="w-4 h-4 text-[#7C2D2D]" />;
+        return <Sun className="w-4 h-4 text-[var(--pc-7c2d2d)]" />;
     }
   };
 
@@ -161,43 +161,43 @@ export const DailyRhythmTracker: React.FC<DailyRhythmTrackerProps> = ({
       
       {/* Header Banner */}
       <div className="text-center mb-8">
-        <span className="text-xs uppercase font-cinzel tracking-widest text-[#7C2D2D] font-bold block mb-1">
+        <span className="text-xs uppercase font-cinzel tracking-widest text-[var(--pc-7c2d2d)] font-bold block mb-1">
           Father John's Counsel
         </span>
-        <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#2C2523]">
+        <h2 className="font-display text-3xl sm:text-4xl font-bold text-[var(--pc-2c2523)]">
           Pray at Fixed Times
         </h2>
-        <div className="mt-3 bg-[#FAF4EB] border border-[#E8DFC8] rounded-lg p-4 text-xs sm:text-sm font-serif italic text-[#6B5E59] max-w-xl mx-auto">
+        <div className="mt-3 bg-[var(--pc-faf4eb)] border border-[var(--pc-e8dfc8)] rounded-lg p-4 text-xs sm:text-sm font-serif italic text-[var(--pc-6b5e59)] max-w-xl mx-auto">
           "The aim is not merely to 'fit prayer in', but to allow prayer gradually to shape the whole day."
         </div>
       </div>
 
       {/* Progress & Fidelity Counter */}
-      <div className="bg-[#FAF7F2] border border-[#E8DFC8] rounded-xl p-5 mb-8 shadow-2xs">
+      <div className="bg-[var(--pc-faf7f2)] border border-[var(--pc-e8dfc8)] rounded-xl p-5 mb-8 shadow-2xs">
         <div className="flex items-center justify-between gap-4 mb-2">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-[#B48A3C]" />
-            <span className="font-cinzel text-xs uppercase tracking-wider text-[#7C2D2D] font-bold">
+            <Sparkles className="w-4 h-4 text-[var(--pc-b48a3c)]" />
+            <span className="font-cinzel text-xs uppercase tracking-wider text-[var(--pc-7c2d2d)] font-bold">
               Today's Faithful Rhythm
             </span>
           </div>
-          <span className="font-serif text-xs text-[#6B5E59]">
+          <span className="font-serif text-xs text-[var(--pc-6b5e59)]">
             {completedCount} of {habits.length} anchors observed
           </span>
         </div>
 
         {/* Progress bar */}
-        <div className="w-full bg-[#EAE1D2] h-2 rounded-full overflow-hidden">
+        <div className="w-full bg-[var(--pc-eae1d2)] h-2 rounded-full overflow-hidden">
           <div
-            className="bg-[#7C2D2D] h-full transition-all duration-300 rounded-full"
+            className="bg-[var(--pc-7c2d2d)] h-full transition-all duration-300 rounded-full"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
 
-        <div className="mt-3 flex items-center justify-between text-[11px] font-serif italic text-[#8C7E77]">
+        <div className="mt-3 flex items-center justify-between text-[11px] font-serif italic text-[var(--pc-8c7e77)]">
           <span>"Even five or ten faithful minutes each day can become the beginning of a genuine spiritual life."</span>
           {progressPercent === 100 && (
-            <span className="text-[#7C2D2D] font-bold not-italic flex items-center gap-1">
+            <span className="text-[var(--pc-7c2d2d)] font-bold not-italic flex items-center gap-1">
               <Award className="w-3.5 h-3.5" />
               Day Fulfilled
             </span>
@@ -215,35 +215,35 @@ export const DailyRhythmTracker: React.FC<DailyRhythmTrackerProps> = ({
               key={habit.id}
               className={`border rounded-lg p-4 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
                 isDone
-                  ? 'bg-[#FAF4EB] border-green-200'
-                  : 'bg-[#FAF7F2] border-[#E8DFC8] hover:border-[#D8CEB8]'
+                  ? 'bg-[var(--pc-faf4eb)] border-green-200'
+                  : 'bg-[var(--pc-faf7f2)] border-[var(--pc-e8dfc8)] hover:border-[var(--pc-d8ceb8)]'
               }`}
             >
               {/* Checkbox & Habit Content */}
               <div className="flex items-start gap-3">
                 <button
                   onClick={() => toggleHabit(habit.id)}
-                  className="mt-0.5 text-[#7C2D2D] hover:text-[#5B1F1F] shrink-0 transition-transform active:scale-95"
+                  className="mt-0.5 text-[var(--pc-7c2d2d)] hover:text-[var(--pc-5b1f1f)] shrink-0 transition-transform active:scale-95"
                   title={isDone ? 'Mark uncompleted' : 'Mark completed'}
                 >
                   {isDone ? (
                     <CheckCircle className="w-5 h-5 fill-green-700 text-white" />
                   ) : (
-                    <Circle className="w-5 h-5 text-[#8C7E77]" />
+                    <Circle className="w-5 h-5 text-[var(--pc-8c7e77)]" />
                   )}
                 </button>
 
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
                     {getTimeIcon(habit.timeOfDay)}
-                    <h3 className={`font-serif font-bold text-sm text-[#2C2523] ${isDone ? 'line-through text-[#8C7E77]' : ''}`}>
+                    <h3 className={`font-serif font-bold text-sm text-[var(--pc-2c2523)] ${isDone ? 'line-through text-[var(--pc-8c7e77)]' : ''}`}>
                       {habit.title}
                     </h3>
-                    <span className="text-[10px] uppercase font-cinzel tracking-wider px-1.5 py-0.5 rounded bg-[#F3ECE1] text-[#7C2D2D] border border-[#E2D4C3]">
+                    <span className="text-[10px] uppercase font-cinzel tracking-wider px-1.5 py-0.5 rounded bg-[var(--pc-f3ece1)] text-[var(--pc-7c2d2d)] border border-[var(--pc-e2d4c3)]">
                       {habit.duration}
                     </span>
                   </div>
-                  <p className="text-xs font-serif text-[#6B5E59] mt-1 leading-relaxed">
+                  <p className="text-xs font-serif text-[var(--pc-6b5e59)] mt-1 leading-relaxed">
                     {habit.description}
                   </p>
                 </div>
@@ -257,7 +257,7 @@ export const DailyRhythmTracker: React.FC<DailyRhythmTrackerProps> = ({
                       if (onSelectPrayer) onSelectPrayer(habit.suggestedPrayerId!);
                       onNavigateTab('prayers');
                     }}
-                    className="text-xs font-serif text-[#7C2D2D] hover:text-[#5B1F1F] bg-[#F3ECE1] hover:bg-[#EBE2D5] px-2.5 py-1 rounded border border-[#E2D4C3] flex items-center gap-1 transition-colors"
+                    className="text-xs font-serif text-[var(--pc-7c2d2d)] hover:text-[var(--pc-5b1f1f)] bg-[var(--pc-f3ece1)] hover:bg-[var(--pc-ebe2d5)] px-2.5 py-1 rounded border border-[var(--pc-e2d4c3)] flex items-center gap-1 transition-colors"
                   >
                     <span>Pray</span>
                     <ArrowRight className="w-3 h-3" />
@@ -267,7 +267,7 @@ export const DailyRhythmTracker: React.FC<DailyRhythmTrackerProps> = ({
                 {habit.id.startsWith('custom-') && (
                   <button
                     onClick={() => handleDeleteHabit(habit.id)}
-                    className="p-1 text-[#8C7E77] hover:text-red-700 transition-colors"
+                    className="p-1 text-[var(--pc-8c7e77)] hover:text-red-700 transition-colors"
                     title="Remove custom prayer"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
@@ -284,14 +284,14 @@ export const DailyRhythmTracker: React.FC<DailyRhythmTrackerProps> = ({
         {!showAddForm ? (
           <button
             onClick={() => setShowAddForm(true)}
-            className="flex items-center gap-1.5 text-xs font-serif text-[#7C2D2D] hover:text-[#581F1F] font-semibold bg-[#F5EFE6] px-3 py-2 rounded-md border border-[#E2D4C3] transition-colors"
+            className="flex items-center gap-1.5 text-xs font-serif text-[var(--pc-7c2d2d)] hover:text-[var(--pc-581f1f)] font-semibold bg-[var(--pc-f5efe6)] px-3 py-2 rounded-md border border-[var(--pc-e2d4c3)] transition-colors"
           >
             <Plus className="w-4 h-4" />
             <span>Add a Simple Custom Anchor (e.g., 1 Psalm or Gospel passage)</span>
           </button>
         ) : (
-          <form onSubmit={handleAddCustomHabit} className="bg-[#FAF7F2] border border-[#E2D4C3] p-4 rounded-lg">
-            <h4 className="text-xs font-cinzel font-bold text-[#7C2D2D] uppercase tracking-wider mb-2">
+          <form onSubmit={handleAddCustomHabit} className="bg-[var(--pc-faf7f2)] border border-[var(--pc-e2d4c3)] p-4 rounded-lg">
+            <h4 className="text-xs font-cinzel font-bold text-[var(--pc-7c2d2d)] uppercase tracking-wider mb-2">
               Add a Modest Daily Habit
             </h4>
             <div className="flex gap-2">
@@ -300,19 +300,19 @@ export const DailyRhythmTracker: React.FC<DailyRhythmTrackerProps> = ({
                 value={newHabitTitle}
                 onChange={e => setNewHabitTitle(e.target.value)}
                 placeholder="e.g., Pray 1 Psalm or read one Gospel chapter..."
-                className="grow bg-white border border-[#E2D4C3] rounded px-3 py-1.5 text-xs font-serif text-[#2C2523] focus:outline-hidden focus:border-[#7C2D2D]"
+                className="grow bg-white border border-[var(--pc-e2d4c3)] rounded px-3 py-1.5 text-xs font-serif text-[var(--pc-2c2523)] focus:outline-hidden focus:border-[var(--pc-7c2d2d)]"
                 autoFocus
               />
               <button
                 type="submit"
-                className="px-3 py-1.5 bg-[#7C2D2D] text-white rounded text-xs font-serif hover:bg-[#682424]"
+                className="px-3 py-1.5 bg-[var(--pc-7c2d2d)] text-white rounded text-xs font-serif hover:bg-[var(--pc-682424)]"
               >
                 Add Anchor
               </button>
               <button
                 type="button"
                 onClick={() => setShowAddForm(false)}
-                className="px-2 py-1.5 text-xs font-serif text-[#8C7E77] hover:text-[#2C2523]"
+                className="px-2 py-1.5 text-xs font-serif text-[var(--pc-8c7e77)] hover:text-[var(--pc-2c2523)]"
               >
                 Cancel
               </button>
@@ -322,8 +322,8 @@ export const DailyRhythmTracker: React.FC<DailyRhythmTrackerProps> = ({
       </div>
 
       {/* Pastoral Comfort Footer */}
-      <div className="mt-10 p-4 bg-[#FAF4EB] border-l-2 border-[#B48A3C] rounded-r text-xs font-serif text-[#6B5E59] leading-relaxed">
-        <span className="font-semibold text-[#7C2D2D] block mb-1">
+      <div className="mt-10 p-4 bg-[var(--pc-faf4eb)] border-l-2 border-[var(--pc-b48a3c)] rounded-r text-xs font-serif text-[var(--pc-6b5e59)] leading-relaxed">
+        <span className="font-semibold text-[var(--pc-7c2d2d)] block mb-1">
           Father John's Pastoral Reminder:
         </span>
         "If you fall out of your rhythm or miss a day, do not waste time in self-reproach or discouragement. Simply begin again modestly today. Fidelity is measured by getting up and returning to God."

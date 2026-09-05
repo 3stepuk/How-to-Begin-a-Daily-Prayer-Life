@@ -15,26 +15,37 @@ export const Header: React.FC<HeaderProps> = ({
   fontSize,
   setFontSize
 }) => {
+  const [isDark, setIsDark] = React.useState<boolean>(() => {
+    if (typeof document === 'undefined') return false;
+    return document.documentElement.getAttribute('data-theme') === 'dark';
+  });
+
+  const toggleTheme = () => {
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.setAttribute('data-theme', next ? 'dark' : 'light');
+    try { localStorage.setItem('mlb-prayer-theme', next ? 'dark' : 'light'); } catch {}
+  };
   return (
-    <header id="app-header" className="sticky top-0 z-30 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#E8DFC8] shadow-xs">
+    <header id="app-header" className="sticky top-0 z-30 bg-[var(--pc-faf7f2)]/95 backdrop-blur-md border-b border-[var(--pc-e8dfc8)] shadow-xs">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           
           {/* Brand & Pastoral Title */}
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-[#7C2D2D] text-[#FAF7F2] flex items-center justify-center shrink-0 shadow-xs border border-[#632323]">
+            <div className="w-9 h-9 rounded-full bg-[var(--pc-7c2d2d)] text-[var(--pc-faf7f2)] flex items-center justify-center shrink-0 shadow-xs border border-[var(--pc-632323)]">
               <Cross className="w-5 h-5 stroke-[2.2]" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="font-serif font-bold text-lg sm:text-xl text-[#2C2523] tracking-tight leading-none">
+                <h1 className="font-serif font-bold text-lg sm:text-xl text-[var(--pc-2c2523)] tracking-tight leading-none">
                   How to Begin a Daily Prayer Life
                 </h1>
-                <span className="hidden sm:inline-block text-[10px] uppercase font-cinzel tracking-widest text-[#7C2D2D] bg-[#F3ECE1] px-2 py-0.5 rounded border border-[#E2D4C3]">
+                <span className="hidden sm:inline-block text-[10px] uppercase font-cinzel tracking-widest text-[var(--pc-7c2d2d)] bg-[var(--pc-f3ece1)] px-2 py-0.5 rounded border border-[var(--pc-e2d4c3)]">
                   Static Guide
                 </span>
               </div>
-              <p className="text-xs text-[#6B5E59] font-serif italic mt-0.5">
+              <p className="text-xs text-[var(--pc-6b5e59)] font-serif italic mt-0.5">
                 Pastoral counsel by Father John
               </p>
             </div>
@@ -43,11 +54,11 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Controls: Navigation tabs & reading options */}
           <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3 flex-wrap">
             {/* Font size toggles for comfortable reading */}
-            <div className="flex items-center border border-[#E2D4C3] rounded-md bg-[#F5EFE6] p-0.5 text-xs text-[#4A3E39]">
+            <div className="flex items-center border border-[var(--pc-e2d4c3)] rounded-md bg-[var(--pc-f5efe6)] p-0.5 text-xs text-[var(--pc-4a3e39)]">
               <button
                 id="font-size-normal-btn"
                 onClick={() => setFontSize('normal')}
-                className={`px-2 py-1 rounded transition-colors font-serif ${fontSize === 'normal' ? 'bg-[#FAF7F2] font-semibold text-[#7C2D2D] shadow-xs' : 'hover:text-[#2C2523]'}`}
+                className={`px-2 py-1 rounded transition-colors font-serif ${fontSize === 'normal' ? 'bg-[var(--pc-faf7f2)] font-semibold text-[var(--pc-7c2d2d)] shadow-xs' : 'hover:text-[var(--pc-2c2523)]'}`}
                 title="Standard font size"
               >
                 A
@@ -55,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 id="font-size-large-btn"
                 onClick={() => setFontSize('large')}
-                className={`px-2 py-1 rounded transition-colors font-serif text-sm ${fontSize === 'large' ? 'bg-[#FAF7F2] font-semibold text-[#7C2D2D] shadow-xs' : 'hover:text-[#2C2523]'}`}
+                className={`px-2 py-1 rounded transition-colors font-serif text-sm ${fontSize === 'large' ? 'bg-[var(--pc-faf7f2)] font-semibold text-[var(--pc-7c2d2d)] shadow-xs' : 'hover:text-[var(--pc-2c2523)]'}`}
                 title="Larger font size"
               >
                 A+
@@ -63,12 +74,23 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 id="font-size-larger-btn"
                 onClick={() => setFontSize('larger')}
-                className={`px-2 py-1 rounded transition-colors font-serif text-base ${fontSize === 'larger' ? 'bg-[#FAF7F2] font-semibold text-[#7C2D2D] shadow-xs' : 'hover:text-[#2C2523]'}`}
+                className={`px-2 py-1 rounded transition-colors font-serif text-base ${fontSize === 'larger' ? 'bg-[var(--pc-faf7f2)] font-semibold text-[var(--pc-7c2d2d)] shadow-xs' : 'hover:text-[var(--pc-2c2523)]'}`}
                 title="Spacious font size"
               >
                 A++
               </button>
             </div>
+
+            {/* Light / Dark theme toggle */}
+            <button
+              id="theme-toggle-btn"
+              onClick={toggleTheme}
+              title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              aria-label="Toggle light or dark theme"
+              className="flex items-center justify-center w-8 h-8 rounded-md border transition-colors bg-[var(--pc-f5efe6)] text-[var(--pc-4a3e39)] border-[var(--pc-e2d4c3)] hover:bg-[var(--pc-ede3d4)]"
+            >
+              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
 
             {/* Print pocket rule quick button */}
             <button
@@ -76,8 +98,8 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={() => setActiveTab('pocket')}
               className={`flex items-center gap-1 text-xs font-serif px-2.5 py-1.5 rounded-md border transition-colors ${
                 activeTab === 'pocket'
-                  ? 'bg-[#7C2D2D] text-[#FAF7F2] border-[#7C2D2D]'
-                  : 'bg-[#F5EFE6] text-[#4A3E39] border-[#E2D4C3] hover:bg-[#EDE3D4]'
+                  ? 'bg-[var(--pc-7c2d2d)] text-[var(--pc-faf7f2)] border-[var(--pc-7c2d2d)]'
+                  : 'bg-[var(--pc-f5efe6)] text-[var(--pc-4a3e39)] border-[var(--pc-e2d4c3)] hover:bg-[var(--pc-ede3d4)]'
               }`}
             >
               <Printer className="w-3.5 h-3.5" />
@@ -87,17 +109,17 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Primary Navigation Tabs */}
-        <nav id="main-navigation" className="flex items-center gap-1 sm:gap-2 mt-3 overflow-x-auto no-scrollbar border-t border-[#EAE1D2] pt-2">
+        <nav id="main-navigation" className="flex items-center gap-1 sm:gap-2 mt-3 overflow-x-auto no-scrollbar border-t border-[var(--pc-eae1d2)] pt-2">
           <button
             id="tab-guide-btn"
             onClick={() => setActiveTab('guide')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md text-xs sm:text-sm font-serif font-medium whitespace-nowrap transition-all border-b-2 ${
               activeTab === 'guide'
-                ? 'border-[#7C2D2D] text-[#7C2D2D] bg-[#F5EFE6]/70'
-                : 'border-transparent text-[#6B5E59] hover:text-[#2C2523] hover:bg-[#F7F2EA]'
+                ? 'border-[var(--pc-7c2d2d)] text-[var(--pc-7c2d2d)] bg-[var(--pc-f5efe6)]/70'
+                : 'border-transparent text-[var(--pc-6b5e59)] hover:text-[var(--pc-2c2523)] hover:bg-[var(--pc-f7f2ea)]'
             }`}
           >
-            <BookOpen className="w-4 h-4 text-[#7C2D2D]" />
+            <BookOpen className="w-4 h-4 text-[var(--pc-7c2d2d)]" />
             <span>The Guide</span>
           </button>
 
@@ -106,11 +128,11 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={() => setActiveTab('prayers')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md text-xs sm:text-sm font-serif font-medium whitespace-nowrap transition-all border-b-2 ${
               activeTab === 'prayers'
-                ? 'border-[#7C2D2D] text-[#7C2D2D] bg-[#F5EFE6]/70'
-                : 'border-transparent text-[#6B5E59] hover:text-[#2C2523] hover:bg-[#F7F2EA]'
+                ? 'border-[var(--pc-7c2d2d)] text-[var(--pc-7c2d2d)] bg-[var(--pc-f5efe6)]/70'
+                : 'border-transparent text-[var(--pc-6b5e59)] hover:text-[var(--pc-2c2523)] hover:bg-[var(--pc-f7f2ea)]'
             }`}
           >
-            <HeartHandshake className="w-4 h-4 text-[#7C2D2D]" />
+            <HeartHandshake className="w-4 h-4 text-[var(--pc-7c2d2d)]" />
             <span>Prayer Treasury</span>
           </button>
 
@@ -119,11 +141,11 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={() => setActiveTab('silence')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md text-xs sm:text-sm font-serif font-medium whitespace-nowrap transition-all border-b-2 ${
               activeTab === 'silence'
-                ? 'border-[#7C2D2D] text-[#7C2D2D] bg-[#F5EFE6]/70'
-                : 'border-transparent text-[#6B5E59] hover:text-[#2C2523] hover:bg-[#F7F2EA]'
+                ? 'border-[var(--pc-7c2d2d)] text-[var(--pc-7c2d2d)] bg-[var(--pc-f5efe6)]/70'
+                : 'border-transparent text-[var(--pc-6b5e59)] hover:text-[var(--pc-2c2523)] hover:bg-[var(--pc-f7f2ea)]'
             }`}
           >
-            <Flame className="w-4 h-4 text-[#B48A3C]" />
+            <Flame className="w-4 h-4 text-[var(--pc-b48a3c)]" />
             <span>Sit Quietly</span>
           </button>
 
@@ -132,11 +154,11 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={() => setActiveTab('rhythm')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md text-xs sm:text-sm font-serif font-medium whitespace-nowrap transition-all border-b-2 ${
               activeTab === 'rhythm'
-                ? 'border-[#7C2D2D] text-[#7C2D2D] bg-[#F5EFE6]/70'
-                : 'border-transparent text-[#6B5E59] hover:text-[#2C2523] hover:bg-[#F7F2EA]'
+                ? 'border-[var(--pc-7c2d2d)] text-[var(--pc-7c2d2d)] bg-[var(--pc-f5efe6)]/70'
+                : 'border-transparent text-[var(--pc-6b5e59)] hover:text-[var(--pc-2c2523)] hover:bg-[var(--pc-f7f2ea)]'
             }`}
           >
-            <Clock className="w-4 h-4 text-[#7C2D2D]" />
+            <Clock className="w-4 h-4 text-[var(--pc-7c2d2d)]" />
             <span>Daily Rhythm</span>
           </button>
         </nav>
